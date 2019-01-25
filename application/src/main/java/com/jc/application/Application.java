@@ -10,7 +10,7 @@ import com.jc.library.service.MyService;
 
 @SpringBootApplication(scanBasePackages = "com.jc")
 @RestController
-public class DemoApplication {
+public class Application {
 
 	@Autowired
 	MyService myService;
@@ -21,6 +21,6 @@ public class DemoApplication {
     }
 	
 	public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 }
