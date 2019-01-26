@@ -11,7 +11,7 @@ import com.jc.rest.dto.Greeting;
 
 @RestController
 @RequestMapping("/api/greeting")
-public class GreetingController {
+public class GreetingRestController {
 	private static final String template = "Hello, %s!";
     private final AtomicLong counter = new AtomicLong();
 

@@ -18,9 +18,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @RunWith(SpringRunner.class)
-@WebMvcTest(GreetingController.class)
+@WebMvcTest(GreetingRestController.class)
 @AutoConfigureRestDocs(outputDir = "target/snippets")
-public class GreetingControllerTest {
+public class GreetingRestControllerTest {
 	
 	@Autowired
     private MockMvc mockMvc;

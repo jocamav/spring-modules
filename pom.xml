@@ -11,6 +11,7 @@
     	<module>library</module>
         <module>application</module>
     <module>rest-controller</module>
+    <module>web-content</module>
   </modules>
     
 </project>
