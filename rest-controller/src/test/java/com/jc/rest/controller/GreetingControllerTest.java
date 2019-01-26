@@ -27,7 +27,7 @@ public class GreetingControllerTest {
 	
 	@Test
     public void greetingShouldReturnMessageFromService() throws Exception {
-        this.mockMvc.perform(get("/greeting").param("name", "John")).andDo(print())
+        this.mockMvc.perform(get("/api/greeting").param("name", "John")).andDo(print())
         	.andExpect(status().isOk())
         	.andDo(document("greeting",
         			requestParameters(
