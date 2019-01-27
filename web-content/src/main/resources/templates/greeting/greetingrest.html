@@ -1,0 +1,34 @@
+
+<!DOCTYPE HTML>
+<html>
+<head th:insert="common :: headerfiles">
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<nav th:insert="common :: navbar"></nav>
+	<div class="container-fluid">
+
+		<div class="form-row align-items-center">
+			<div class="col-sm-3 my-1">
+				<label class="sr-only" for="inlineFormInputName">Name</label> <input
+					type="text" class="form-control" id="inputName" name="name"
+					placeholder="Insert Name">
+			</div>
+			<div class="col-auto my-1">
+				<button id="confirmHello" class="btn btn-primary">Say
+					hello!</button>
+			</div>
+		</div>
+		<div class="spinner-border text-primary" role="status">
+			<span class="sr-only">Loading...</span>
+		</div>
+		<hr/>
+		<div>
+			<code><p class="response"></p></code>
+		</div>
+	</div>
+	<div th:insert="common :: jsfiles"></div>
+	<script type="text/javascript" src="js/greeting/greeting.js"></script>
+</body>
+</html>

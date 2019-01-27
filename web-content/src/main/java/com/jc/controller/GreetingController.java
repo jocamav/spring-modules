@@ -13,4 +13,9 @@ public class GreetingController {
         model.addAttribute("name", name);
         return "greeting/greeting";
     }
+	
+	@GetMapping("/greetingrest")
+    public String greetingRst() {
+        return "greeting/greetingrest";
+    }
 }
