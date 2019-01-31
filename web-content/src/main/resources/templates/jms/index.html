@@ -2,23 +2,51 @@
 <!DOCTYPE HTML>
 <html>
 <head th:insert="common :: headerfiles">
-<title>Getting Started: Serving Web Content</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
 	<nav th:insert="common :: navbar"></nav>
 	<div class="container-fluid">
-		<div class="alert alert-info" role="alert">Send a JMS message</div>
+	
+	<!-- Modal -->
+	<div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLabel">Confirmation</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	      	Mail has been sent! (Check logs to very JMS processing)
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	
+		<div class="alert alert-info" role="alert">Send an Email via JMS</div>
 
 		<form>
 			<div class="form-row align-items-center">
-				<div class="col-sm-3 my-1">
-					<label class="sr-only" for="inlineFormInputName">Name</label> <input
-						type="text" class="form-control" id="inlineFormInputName" name="name"
-						placeholder="Insert Name">
+				<div class="col-sm-4 my-1">
+					<label class="sr-only" for="inlineFormInputName">To</label> <input
+						type="text" class="form-control" id="inlineFormInputTo" name="to"
+						placeholder="To">
 				</div>
+			</div>
+			<div class="form-row align-items-center">
+				<div class="col-sm-4 my-1">
+					<label class="sr-only" for="inlineFormInputName">To</label> <input
+						type="text" class="form-control" id="inlineFormInputBody" name="body"
+						placeholder="Insert Body">
+				</div>
+			</div>
+			<div class="form-row align-items-center">
 				<div class="col-auto my-1">
-					<button type="submit" class="btn btn-primary">Say hello!</button>
+					<button type="button" id="confirmMailSending" class="btn btn-primary">Send mail!</button>
 				</div>
 			</div>
 		</form>
@@ -26,5 +54,6 @@
 	</div>
 
 	<div th:insert="common :: jsfiles"></div>
+	<script type="text/javascript" src="js/jms/jms.js"></script>
 </body>
 </html>
