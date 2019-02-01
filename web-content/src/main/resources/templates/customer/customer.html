@@ -1,0 +1,32 @@
+
+<!DOCTYPE HTML>
+<html>
+<head th:insert="common :: headerfiles">
+</head>
+<body>
+	<nav th:insert="common :: navbar"></nav>
+	<div class="container-fluid">
+		<br/>
+		<div class="alert alert-info" role="alert">Let's see the customer list in a Table</div>	
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr th:each="customer : ${customers}">
+        <td scope="row" th:text="${customer.id}"></td>
+        <td th:text="${customer.firstName}"></td>
+        <td th:text="${customer.lastName}"></td>
+    </tr>
+  </tbody>
+</table>
+
+	</div>
+	<div th:insert="common :: jsfiles"></div>
+</body>
+</html>

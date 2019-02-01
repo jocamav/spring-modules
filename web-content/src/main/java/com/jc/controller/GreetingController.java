@@ -15,7 +15,7 @@ public class GreetingController {
     }
 	
 	@GetMapping("/greetingrest")
-    public String greetingRst() {
+    public String greetingRest() {
         return "greeting/greetingrest";
     }
 }

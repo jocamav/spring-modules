@@ -1,0 +1,24 @@
+
+<!DOCTYPE HTML>
+<html>
+<head th:insert="common :: headerfiles">
+</head>
+<body>
+	<nav th:insert="common :: navbar"></nav>
+	<div class="container-fluid">
+		<br/>
+		<div class="alert alert-info" role="alert">Let's see the customer list response as JSON</div>	
+		
+		<div>
+			<code><p id="listCustomerResponse" class="response"></p></code>
+		</div>
+		
+		<div class="alert alert-info" role="alert">And also for just one customer</div>
+		<div>
+			<code><p id="customerResponse" class="response"></p></code>
+		</div>
+	</div>
+	<div th:insert="common :: jsfiles"></div>
+	<script type="text/javascript" src="js/customer/customer.js"></script>
+</body>
+</html>

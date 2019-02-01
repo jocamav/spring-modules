@@ -3,32 +3,43 @@
 <head th:fragment="headerfiles">
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
 </head>
 <body>
 
 	<nav class="navbar navbar-expand-lg navbar-light bg-light"
 		th:fragment="navbar">
 		<a class="navbar-brand" href="/"> <img
-			src="/img/spring_logo_min.png" width="30" height="30" alt="">
+			th:src="@{/img/spring_logo_min.png}" width="30" height="30" alt="">
 		</a>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item"><a class="nav-link" href="/greeting">Greeting</a></li>
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Thymeleaf </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" th:href="@{/greeting}">Greeting</a>
+						<a class="dropdown-item" th:href="@{/customer}">Customer
+							JPA</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Pending</a>
+					</div></li>
 				<li class="nav-item dropdown"><a
 					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
 					role="button" data-toggle="dropdown" aria-haspopup="true"
 					aria-expanded="false"> REST </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="/greetingrest">Say hello</a> <a
-							class="dropdown-item" href="#">Pending</a>
+						<a class="dropdown-item" th:href="@{/greetingrest}">Say hello</a>
+						<a class="dropdown-item" th:href="@{/customerajax}">Customer
+							JPA</a>
 						<div class="dropdown-divider"></div>
 						<a class="dropdown-item" href="#">Pending</a>
 					</div></li>
-				<li class="nav-item"><a class="nav-link" href="/jmsexample"
-					tabindex="-1" aria-disabled="true">JMS</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/jmsexample}" tabindex="-1" aria-disabled="true">JMS</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Pending</a></li>
 			</ul>
@@ -41,8 +52,8 @@
 	</nav>
 
 	<div th:fragment="jsfiles">
-		<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-		<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+		<script type="text/javascript" th:src="@{/js/jquery-3.3.1.js}"></script>
+		<script type="text/javascript" th:src="@{/js/bootstrap.bundle.js}"></script>
 	</div>
 </body>
 </html>
