@@ -13,6 +13,7 @@
     <module>rest-controller</module>
     <module>web-content</module>
     <module>jms-service</module>
+    <module>data-access</module>
   </modules>
     
 </project>
