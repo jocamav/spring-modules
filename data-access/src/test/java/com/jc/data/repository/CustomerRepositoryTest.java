@@ -1,5 +1,6 @@
 package com.jc.data.repository;
 
+import java.util.Collection;
 import java.util.List;
 
 import org.junit.FixMethodOrder;
@@ -11,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 import com.jc.data.entity.Customer;
 
@@ -38,10 +42,10 @@ public class CustomerRepositoryTest {
 	@Test
 	public void testB_getAllCustomers() {
 
-		// fetch all customers
 		log.info("Customers found with findAll():");
 		log.info("-------------------------------");
-		Iterable<Customer> allCustomers = customerRepository.findAll();
+		Collection<Customer> allCustomers = customerRepository.findAll();
+		assertThat(allCustomers.size()).isEqualTo(5);
 		for (Customer customer : allCustomers) {
 			log.info(customer.toString());
 		}
@@ -51,15 +55,16 @@ public class CustomerRepositoryTest {
 	
 	@Test
 	public void testC_getCustomerById() {
-
-		// fetch an individual customer by ID
-		customerRepository.findById(1L)
-			.ifPresent(customer -> {
-				log.info("Customer found with findById(1L):");
-				log.info("--------------------------------");
-				log.info(customer.toString());
-				log.info("");
-			});
+		
+		Customer customer = customerRepository.getOne(1L);
+		log.info("Customer found with getOne(1L):");
+		log.info("--------------------------------");
+		log.info(customer.toString());
+		log.info("");
+		
+		assertThat(customer.getId()).isEqualTo(1L);
+		assertThat(customer.getFirstName()).isNotBlank();
+		assertThat(customer.getLastName()).isNotBlank();
 
 	}
 
@@ -71,7 +76,10 @@ public class CustomerRepositoryTest {
 		log.info("--------------------------------------------");
 		
 		List<Customer> bauerCustomers = customerRepository.findByLastName("Bauer");
+		assertThat(bauerCustomers.size()).isEqualTo(2);
 		bauerCustomers.forEach(bauer -> {
+			assertThat(bauer.getId()).isNotNull();
+			assertThat(bauer.getLastName()).contains("Bauer");
 			log.info(bauer.toString());
 		});
 
