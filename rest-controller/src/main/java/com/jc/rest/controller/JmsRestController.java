@@ -17,7 +17,7 @@ public class JmsRestController {
 	private EmailSenderService emailSenderService;
 
     @PostMapping
-    public Email greeting(@RequestBody Email email) {
+    public Email sendMail(@RequestBody Email email) {
         emailSenderService.sendMail(email);
         return email;
     }

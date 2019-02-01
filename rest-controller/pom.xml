@@ -49,6 +49,12 @@
 			<artifactId>module-jms-service</artifactId>
 			<version>${project.version}</version>
 		</dependency>
+		
+		<dependency>
+			<groupId>com.jc</groupId>
+			<artifactId>module-data-access</artifactId>
+			<version>${project.version}</version>
+		</dependency>
 	</dependencies>
 	
 	<build>

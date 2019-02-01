@@ -5,7 +5,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) //Just for testing the Controller
 public class Customer {
 
     @Id
@@ -14,8 +17,14 @@ public class Customer {
     private String firstName;
     private String lastName;
 
-    protected Customer() {}
+    public Customer() {}
 
+    public Customer(Long id, String firstName, String lastName) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+    
     public Customer(String firstName, String lastName) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -31,6 +40,18 @@ public class Customer {
 
 	public String getLastName() {
 		return lastName;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
 
 	@Override

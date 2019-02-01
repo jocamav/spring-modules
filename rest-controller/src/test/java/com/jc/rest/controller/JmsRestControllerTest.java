@@ -35,14 +35,14 @@ public class JmsRestControllerTest {
 	private EmailSenderService emailSenderService;
 	
 	@Test
-    public void greetingShouldReturnMessageFromService() throws Exception {
+    public void sendMailFromController() throws Exception {
         this.mockMvc.perform(
         	post("/api/jms")
 	        	.contentType(MediaType.APPLICATION_JSON)
 	        	.content("{\"to\": \"mail@example.com\",\"body\":\"Some content\"}")
         	).andDo(print())
         	.andExpect(status().isOk())
-        	.andDo(document("greeting",
+        	.andDo(document("jms",
         			requestFields(
     	        			fieldWithPath("to").description("Recipent of the mail"),
     	        			fieldWithPath("body").description("Body of the mail")

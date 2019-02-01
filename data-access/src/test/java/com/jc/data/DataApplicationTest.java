@@ -2,7 +2,6 @@ package com.jc.data;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,14 +11,14 @@ import com.jc.data.entity.Customer;
 import com.jc.data.repository.CustomerRepository;
 
 @SpringBootApplication
-public class DataApplication {
-
-	private static final Logger log = LoggerFactory.getLogger(DataApplication.class);
-
+public class DataApplicationTest {
+	
+	private static final Logger log = LoggerFactory.getLogger(DataApplicationTest.class);
+	
 	public static void main(String[] args) {
-		SpringApplication.run(DataApplication.class);
-	}
-
+        SpringApplication.run(DataApplicationTest.class, args);
+    }
+	
 	@Bean
 	public CommandLineRunner demo(CustomerRepository repository) {
 		return (args) -> {
@@ -59,5 +58,4 @@ public class DataApplication {
 			log.info("");
 		};
 	}
-
 }
