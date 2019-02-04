@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:fragment="headerfiles">
 <title>Getting Started: Serving Web Content</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -40,14 +40,16 @@
 					</div></li>
 				<li class="nav-item"><a class="nav-link"
 					th:href="@{/jmsexample}" tabindex="-1" aria-disabled="true">JMS</a></li>
+				<li class="nav-item"><a class="nav-link"
+					th:href="@{/secured}" tabindex="-1" aria-disabled="true">Spring Security</a></li>
 				<li class="nav-item"><a class="nav-link disabled" href="#"
 					tabindex="-1" aria-disabled="true">Pending</a></li>
 			</ul>
-			<form class="form-inline my-2 my-lg-0">
-				<input class="form-control mr-sm-2" type="search"
-					placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+			<div sec:authorize="isAuthenticated()">
+			<form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="post">
+				<input class="form-control mr-sm-2" type="submit" value="Sign Out" />
 			</form>
+			</div>
 		</div>
 	</nav>
 

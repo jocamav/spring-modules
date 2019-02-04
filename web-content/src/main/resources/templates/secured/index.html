@@ -1,0 +1,18 @@
+
+<!DOCTYPE HTML>
+<html>
+<head th:insert="common :: headerfiles">
+</head>
+<body>
+	<nav th:insert="common :: navbar"></nav>
+	<div class="container-fluid">
+		<br/>
+		<div class="alert alert-warning" role="alert">This is a protected area! You can see the logged user and its roles</div>
+		
+    <p><b>Logged user:</b> <span sec:authentication="name"></span></p>
+	<p><b>Roles: </b><span sec:authentication="principal.authorities"></span></p>
+	</div>
+
+	<div th:insert="common :: jsfiles"></div>
+</body>
+</html>

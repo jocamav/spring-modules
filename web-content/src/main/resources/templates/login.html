@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head th:insert="common :: headerfiles">
+</head>
+<body>
+	<nav th:insert="common :: navbar"></nav>
+	<div class="container-fluid">
+
+		<br/>
+		<div th:if="${param.error}" class="alert alert-danger" role="alert">
+			Invalid username and password.</div>
+
+		<div th:if="${param.logout}" class="alert alert-info" role="alert">
+			You have been logged out.</div>
+
+		<form th:action="@{/login}" method="post">
+			<div class="form-group row">
+				<label for="inputEmail3" class="col-sm-1 col-form-label">User
+					Name</label>
+				<div class="col-sm-3">
+					<input type="text" class="form-control" id="inputEmail3"
+						name="username" placeholder="User Name">
+				</div>
+			</div>
+			<div class="form-group row">
+				<label for="inputPassword3" class="col-sm-1 col-form-label">Password</label>
+				<div class="col-sm-3">
+					<input type="password" class="form-control" id="inputPassword3"
+						name="password" placeholder="Password">
+				</div>
+			</div>
+			<div class="form-group row">
+				<div class="col-sm-10">
+					<input type="submit" class="btn btn-primary" value="Sign in"></input>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div th:insert="common :: jsfiles"></div>
+</body>
+</html>

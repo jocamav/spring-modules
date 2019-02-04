@@ -10,33 +10,21 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
-import com.jc.data.repository.CustomerRepository;
-
 @RunWith(SpringRunner.class)
-@WebMvcTest(CustomerController.class)
+@WebMvcTest(SecuredPageController.class)
 @WithMockUser
-public class CustomerControllerTest {
+public class SecuredPageControllerTest {
 	
 	@Autowired
     private MockMvc mockMvc;
 	
-	@MockBean
-	private CustomerRepository customerRepository;
-	
 	@Test
-    public void getMainPageWithCustomersViaAjax() throws Exception {
-        this.mockMvc.perform(get("/customerajax")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("customer list response as JSON")));
-    }
-	
-	@Test
-    public void getMainPageWithCustomersInATable() throws Exception {
-        this.mockMvc.perform(get("/customer")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("customer list in a Table")));
+    public void shouldReturnJmsPage() throws Exception {
+        this.mockMvc.perform(get("/secured")).andDo(print()).andExpect(status().isOk())
+                .andExpect(content().string(containsString("This is a protected area")));
     }
 }

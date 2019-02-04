@@ -6,15 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-public class IndexController {
+public class SecuredPageController {
 	
-	@GetMapping("/")
-    public String getHomePage() {
-        return "index";
-    }
-	
-	@GetMapping("/login")
-    public String getLoginPage() {
-        return "login";
+	@GetMapping("/secured")
+    public String greeting() {
+        return "secured/index";
     }
 }

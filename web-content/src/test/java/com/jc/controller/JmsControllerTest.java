@@ -10,11 +10,13 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(JmsController.class)
+@WithMockUser
 public class JmsControllerTest {
 	
 	@Autowired
@@ -23,6 +25,6 @@ public class JmsControllerTest {
 	@Test
     public void shouldReturnJmsPage() throws Exception {
         this.mockMvc.perform(get("/jmsexample")).andDo(print()).andExpect(status().isOk())
-                .andExpect(content().string(containsString("JMS")));
+                .andExpect(content().string(containsString("Send an Email via JMS")));
     }
 }

@@ -1,5 +1,8 @@
 <!DOCTYPE HTML>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+	
 <head th:insert="common :: headerfiles">
 </head>
 <body>
@@ -8,7 +11,11 @@
 		<p>
 			Get your greeting <a href="/greeting">here</a>
 		</p>
+		<p>
+			To access a protected area, use user/password credentials
+		</p>
 	</div>
+
 	<div th:insert="common :: jsfiles"></div>
 </body>
 </html>
